@@ -2,7 +2,7 @@
 
 import java.util.HashMap;
 
-public class Answer6 {
+public class Answer06 {
     public static int lengthOfLongestSubstring(String s) {
         int n=s.length();
         if(n==0 || s==null) return 0;

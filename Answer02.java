@@ -1,6 +1,6 @@
 //find the sum of elements in a given range [L,R] using a prefix sum array
 
-public class Answer2{
+public class Answer02{
     //TC: O(N) SC:O(N)
     public static int prefixSum(int[] arr, int l, int r){
         int n=arr.length;

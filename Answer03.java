@@ -1,6 +1,6 @@
 //find the equilibrium index in an array
 
-public class Answer3 {
+public class Answer03 {
     //TC:O(N)
     public static int index(int[] arr){
         int n=arr.length;

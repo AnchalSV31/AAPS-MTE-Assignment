@@ -1,6 +1,6 @@
 //. Find the maximum sum of any subarray of size K in a given array
 
-public class Answer5 {
+public class Answer05 {
     public static int maxSumSubarray(int[] arr, int k){
         int n=arr.length;
         int sum=0;

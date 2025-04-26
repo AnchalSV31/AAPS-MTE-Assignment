@@ -1,6 +1,6 @@
 //Check if an array can be split into two parts such that the sum of the prefix equals the sum of the suffix
 
-public class Answer4 {
+public class Answer04 {
     //TC: O(n * sum/2)  SC: O(sum/2)
     public static boolean canBeSplit(int[] nums){
         int n=nums.length;

@@ -1,6 +1,6 @@
 //longest common prefix among a list of strings
 import java.util.*;
-public class Answer9 {
+public class Answer09 {
     //TC: O(m × log n + k)  SC: O(k)
     public static String longestCommonPrefix(String[] strs) {
         int n= strs.length;

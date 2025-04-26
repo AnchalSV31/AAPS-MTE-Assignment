@@ -1,6 +1,6 @@
 //longest palindromic substring in a given string
 
-public class Answer8 {
+public class Answer08 {
     //TC:O(n^3) SC:O(1)
     public static String longestPalindrome(String s){
         int n=s.length();
