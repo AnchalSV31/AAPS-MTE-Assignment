@@ -1,4 +1,4 @@
-//Implement two stacks in a single array
+ //Implement two stacks in a single array
 import java.util.*;
 
 public class Answer28 {

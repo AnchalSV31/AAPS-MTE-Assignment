@@ -1,26 +1,25 @@
 //Check if an array can be split into two parts such that the sum of the prefix equals the sum of the suffix
 
 public class Answer04 {
-    //TC: O(n * sum/2)  SC: O(sum/2)
-    public static boolean canBeSplit(int[] nums){
-        int n=nums.length;
-        int totalSum=0;
-        for(int i=0; i<n; i++){
-            totalSum+=nums[i];
+    //TC: O(n)  SC: O(n)
+    public static boolean canBeSplit(int[] arr){
+        int n=arr.length;
+        int[] leftSum= new int[n];
+        int[] rightSum=new int[n];
+        leftSum[0]=arr[0];
+        for(int i=1; i<n; i++){
+            leftSum[i]=leftSum[i-1]+arr[i];
         }
-        if(totalSum%2!=0){
-            return false;
+        rightSum[n-1]=arr[n-1];
+        for(int i=n-2; i>=0; i--){
+            rightSum[i]=rightSum[i+1]+arr[i];
         }
-        int target=totalSum/2;
-        boolean dp[] = new boolean[target+1];
-        dp[0]=true;
-
-        for(int num: nums){
-            for(int i=target; i>=num; i--){
-                dp[i]=dp[i] || dp[i-num];
+        for(int i=0; i<n-1; i++){
+            if(leftSum[i]==rightSum[i+1]){
+                return true;
             }
         }
-        return dp[target];
+        return false;
     }
 
 

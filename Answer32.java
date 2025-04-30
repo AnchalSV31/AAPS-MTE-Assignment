@@ -3,29 +3,33 @@ import java.util.Stack;
 
 public class Answer32{
     //TC:O(N) SC:O(N)
-    public static int largestRectangleArea(int[] arr) {
-        int n=arr.length;
-        Stack<Integer> st = new Stack<>();
-        int maxArea = 0;
-        
-        for(int i=0; i<n; i++){
-            while(!st.isEmpty() && arr[st.peek()]>arr[i]){
-                int element = st.peek();
-                st.pop();
-                int nse=i, pse = st.isEmpty() ? -1 : st.peek();
-                maxArea = Math.max(maxArea, arr[element]*(nse-pse-1));
-            }
-            st.push(i);
-        }
+    public static int largestRectangleArea(int[] heights) {
+        Stack<Integer> stack = new Stack<>();
+        int max=0;
 
-        while(!st.isEmpty()){
-            int nse = n;
-            int element = st.peek();
-            st.pop();
-            int pse = st.isEmpty() ? -1 : st.peek();
-            maxArea = Math.max(maxArea, arr[element]*(nse-pse-1));
-        } 
-        return maxArea;
+        stack.push(0);
+        for(int i=0; i< heights.length; i++){
+            while(!stack.isEmpty() && heights[i]<heights[stack.peek()]){
+                max=getMax(heights, stack, max, i);
+            }
+            stack.push(i);
+        }
+        int i=heights.length;
+        while(!stack.isEmpty()){
+            max=getMax(heights, stack, max, i);
+        }
+        return max;
+    }
+
+    private static int getMax(int[] arr, Stack<Integer> stack, int max, int i) {
+        int area;
+        int popped=stack.pop();
+        if(stack.isEmpty()){
+            area=arr[popped]*i;
+        }else{
+            area=arr[popped]*(i-1-stack.peek());
+        }
+        return Math.max(max, area);
     }
     public static void main(String[] args) {
         int[] heights={2,1,5,6,2,3};

@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class Answer25 {
     public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
-            List<Integer> ans = new ArrayList<>();
-            Map<Integer, Integer> numToNextGreater = new HashMap<>();
-            Deque<Integer> stack = new ArrayDeque<>(); // a decreasing stack
+        List<Integer> ans = new ArrayList<>();
+        Map<Integer, Integer> numToNextGreater = new HashMap<>();
+        Deque<Integer> stack = new ArrayDeque<>(); // a decreasing stack
     
         for (final int num : nums2) {
           while (!stack.isEmpty() && stack.peek() < num)

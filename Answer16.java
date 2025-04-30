@@ -17,8 +17,41 @@ public class Answer16 {
         }
         return -1;
     }
+
+    //OPTIMAL SOLUTION[MOORE VOTING ALGO]
+    //TC:O(N) SC:O(1)
+    public static int majorityElement2(int arr[]){
+        int n=arr.length;
+        int count=0;
+        int el=0;
+        for(int i=0; i<n; i++){
+            if(count==0){
+                count=1;
+                el=arr[i];
+            }
+            else if(arr[i]==el){
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+
+        //checking if the stored element is the majority element:
+        int count1=0;
+        for(int i=0; i<n; i++){
+            if(arr[i]==el){
+                count1++;
+            }
+        }
+        if(count1>(n/2)){
+            return el;
+        }
+        return -1;
+    }
     public static void main(String[] args) {
         int[] nums={3,2,3};
         System.out.println(majorityElement(nums));
+        System.out.println(majorityElement2(nums));
     }
 }
